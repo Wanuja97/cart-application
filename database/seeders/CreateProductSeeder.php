@@ -16,6 +16,7 @@ class CreateProductSeeder extends Seeder
     {
         $user = [
             [
+                
                'product_name'=>'Anchor Milk Powder',
                'description'=>'400g',
                'price'=>'1350',
