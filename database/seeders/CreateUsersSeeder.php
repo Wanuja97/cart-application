@@ -20,7 +20,6 @@ class CreateUsersSeeder extends Seeder
                'last_name'=>'Admin',
                'email'=>'admin@test.com',
                 'is_admin'=>'1',
-                'country' => 'Sri Lanka',
                'password'=> bcrypt('secret'),
             ],
             [
@@ -28,7 +27,6 @@ class CreateUsersSeeder extends Seeder
                'last_name'=>'User',
                'email'=>'user@test.com',
                 'is_admin'=>'0',
-                'country' => 'Sri Lanka',
                'password'=> bcrypt('secret'),
             ],
         ];
