@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    use HasUuids;
     /**
      * The attributes that are mass assignable.
      *
@@ -45,23 +44,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-      /**
- * Generate a new UUID for the model.
- *
- * @return string
- */
-public function newUniqueId()
-{
-    return (string) Uuid::uuid4();
-}
+    // /**
+    //  * Generate a new UUID for the model.
+    //  *
+    //  * @return string
+    // */
+    // public function newUniqueId()
+    // {
+    //     return (string) Uuid::uuid4();
+    // }
  
-/**
- * Get the columns that should receive a unique identifier.
- *
- * @return array
- */
-public function uniqueIds()
-{
-    return ['id'];
-}
+    // /**
+    //  * Get the columns that should receive a unique identifier.
+    //  *
+    //  * @return array
+    //  */
+    // public function uniqueIds()
+    // {
+    //     return ['id'];
+    // }
 }

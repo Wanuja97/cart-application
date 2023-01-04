@@ -14,15 +14,16 @@ class CreateProductSeeder extends Seeder
      */
     public function run()
     {
-        $user = [
+        $product = [
             [
-                
+               'id'=>'1',
                'product_name'=>'Anchor Milk Powder',
                'description'=>'400g',
                'price'=>'1350',
                'available_qty'=>'100',
             ],
             [
+                'id'=>'2',
                 'product_name'=>'Coca Cola',
                 'description'=>'1.5l',
                 'price'=>'500',
@@ -30,7 +31,7 @@ class CreateProductSeeder extends Seeder
             ],
         ];
   
-        foreach ($user as $key => $value) {
+        foreach ($product as $key => $value) {
             Product::create($value);
         }
     }

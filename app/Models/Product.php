@@ -17,22 +17,22 @@ class Product extends Model
     ];
 
     /**
- * Generate a new UUID for the model.
- *
- * @return string
- */
-public function newUniqueId()
-{
-    return (string) Uuid::uuid4();
-}
- 
-/**
- * Get the columns that should receive a unique identifier.
- *
- * @return array
- */
-public function uniqueIds()
-{
-    return ['id'];
-}
+     * Generate a new UUID for the model.
+     *
+     * @return string
+     */
+    public function newUniqueId()
+    {
+        return (string) Uuid::uuid4();
+    }
+    
+    /**
+     * Get the columns that should receive a unique identifier.
+     *
+     * @return array
+     */
+    public function uniqueIds()
+    {
+        return ['id'];
+    }
 }
