@@ -21,6 +21,7 @@ class CreateProductSeeder extends Seeder
                'description'=>'400g',
                'price'=>'1350',
                'available_qty'=>'100',
+               'image'=>'images/product/1754159091729964.jpg',
             ],
             [
                 'id'=>'2',
@@ -28,6 +29,7 @@ class CreateProductSeeder extends Seeder
                 'description'=>'1.5l',
                 'price'=>'500',
                 'available_qty'=>'200',
+                'image'=>'images/product/1754159001565205.jfif',
             ],
         ];
   

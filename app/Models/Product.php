@@ -13,7 +13,8 @@ class Product extends Model
         'product_name',
         'description',
         'price',
-        'available_qty'
+        'available_qty',
+        'image',
     ];
 
     // /**
