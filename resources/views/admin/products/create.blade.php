@@ -22,7 +22,10 @@
                         <input type="number" min="0.00" step="0.01" id="price" name="price" placeholder="Enter product price"><br>
                         
                         <label for="quantity">Quantity:</label><br>
-                        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity"><br><br>
+                        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity"><br>
+
+                        <label for="inputProductImage" class="form-label">Category Image</label>
+                        <input type="file" name="image" id="inputProductImage">
 
                         <input type="submit" value="Submit">
                     </form>
