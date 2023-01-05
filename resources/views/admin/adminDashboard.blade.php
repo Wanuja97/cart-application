@@ -9,7 +9,13 @@
 
                 <div class="card-body">
                     Admin Dashboard
-                    
+                    <br><br>
+                    <a href="{{route('add.product')}}"> Add New Product
+                    </a>
+                    <br><br>
+                    <a href="{{route('view.products')}}"> View Products
+                    </a>
+                
                 </div>
             </div>
         </div>
