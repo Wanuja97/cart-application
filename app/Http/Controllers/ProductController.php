@@ -38,7 +38,8 @@ class ProductController extends Controller
         ]);
 
         $products = Product::all();
-        return view('admin.products.index',compact('products'))->with('success','Product Updated Successfully');
+        // return view('admin.products.index',compact('products'))->with('success','Product Updated Successfully');
+        return redirect()->route('view.products');
     }
     public function delete($id)
     {
@@ -68,7 +69,8 @@ class ProductController extends Controller
             'updated_at' => Carbon::now(),
         ]);
         $products = Product::all();
-        return view('admin.products.index',compact('products'))->with('success','Product Updated Successfully');
+        // return view('admin.products.index',compact('products'))->with('success','Product Updated Successfully');
+        return redirect()->route('view.products');
     }
 
 }
