@@ -16,23 +16,23 @@ class Product extends Model
         'available_qty'
     ];
 
-    /**
-     * Generate a new UUID for the model.
-     *
-     * @return string
-     */
-    public function newUniqueId()
-    {
-        return (string) Uuid::uuid4();
-    }
+    // /**
+    //  * Generate a new UUID for the model.
+    //  *
+    //  * @return string
+    //  */
+    // public function newUniqueId()
+    // {
+    //     return (string) Uuid::uuid4();
+    // }
     
-    /**
-     * Get the columns that should receive a unique identifier.
-     *
-     * @return array
-     */
-    public function uniqueIds()
-    {
-        return ['id'];
-    }
+    // /**
+    //  * Get the columns that should receive a unique identifier.
+    //  *
+    //  * @return array
+    //  */
+    // public function uniqueIds()
+    // {
+    //     return ['id'];
+    // }
 }
