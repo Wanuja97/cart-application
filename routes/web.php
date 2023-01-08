@@ -32,15 +32,9 @@ Route::get('/', function () {
 Auth::routes();
 
 
-
-
 // Public routes
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-
 
 
 //  Admin routes
@@ -57,3 +51,10 @@ Route::middleware(['is_admin'])->group(function () {
     Route::get('admin/product/edit/{id}', [ProductController::class, 'edit']);
     Route::post('admin/product/update/{id}', [ProductController::class, 'update']);
 });
+
+
+// Consumer View
+Route::get('/cart', function () {
+    return view('consumer/cart');
+});
+Route::post('admin/product/search', [HomeController::class, 'searchResults'])->name('search.product');
