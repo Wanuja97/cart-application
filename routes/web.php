@@ -68,3 +68,4 @@ Route::delete('/remove-from-cart', [CartController::class, 'deleteCart'])->name(
 
 // Consumer Profile
 Route::get('/consumer/profile',[UserController::class,'index'])->name('consumer.profile');
+Route::post('/consumer/profile/update',[UserController::class,'profileUpdate'])->name('profile.update');
