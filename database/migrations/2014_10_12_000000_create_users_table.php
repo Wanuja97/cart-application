@@ -20,6 +20,11 @@ return new class extends Migration
             $table->string('email')->unique();
             // consumer = 0, admin = 1
             $table->boolean('is_admin')->default(0);
+            $table->string('zip_code')->nullable();
+            $table->string('street')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->string('telephone')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -54,7 +56,15 @@ Route::middleware(['is_admin'])->group(function () {
 
 
 // Consumer View
-Route::get('/cart', function () {
-    return view('consumer/cart');
-});
+
+// Search product
 Route::post('admin/product/search', [HomeController::class, 'searchResults'])->name('search.product');
+
+// Cart management
+Route::get('/cart', [CartController::class, 'index'])->name('view.cart');
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.cart');
+Route::patch('/update-cart', [CartController::class, 'updateCart'])->name('update.cart');
+Route::delete('/remove-from-cart', [CartController::class, 'deleteCart'])->name('delete.cart');
+
+// Consumer Profile
+Route::get('/consumer/profile',[UserController::class,'index'])->name('consumer.profile');
