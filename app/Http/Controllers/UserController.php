@@ -25,9 +25,7 @@ class UserController extends Controller
             'telephone' => $request->telephone,
             'updated_at' => Carbon::now(),
         ]);
-        // $products = User::all();
-        // return view('admin.products.index',compact('products'))->with('success','Product Updated Successfully');
-        return redirect()->back();
+        return redirect()->route('home');
 
     }
 }

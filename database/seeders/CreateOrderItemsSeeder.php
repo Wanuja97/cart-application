@@ -19,13 +19,15 @@ class CreateOrderItemsSeeder extends Seeder
             [
                'order_id'=>'1',
                'product_id'=>'1',
-               'quantity'=>'10'
+               'quantity'=>'10',
+               'item_price'=>'1200.00'
 
             ],
             [
                 'order_id'=>'1',
                 'product_id'=>'2',
-                'quantity'=>'5'
+                'quantity'=>'5',
+                'item_price'=>'500.00'
             ],
         ];
   
