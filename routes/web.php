@@ -4,7 +4,6 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
-use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Auth;
@@ -65,6 +64,8 @@ Route::get('/cart', [CartController::class, 'index'])->name('view.cart');
 Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.cart');
 Route::patch('/update-cart', [CartController::class, 'updateCart'])->name('update.cart');
 Route::delete('/remove-from-cart', [CartController::class, 'deleteCart'])->name('delete.cart');
+Route::get('/cart/checkout',[CartController::class,'checkout'])->name('cart.checkout');
+Route::post('/cart/payment',[CartController::class,'payment'])->name('payment');
 
 // Consumer Profile
 Route::get('/consumer/profile',[UserController::class,'index'])->name('consumer.profile');

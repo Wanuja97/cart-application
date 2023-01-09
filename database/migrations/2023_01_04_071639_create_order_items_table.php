@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
             $table->integer('quantity');
+            $table->float('item_price');
             $table->timestamps();
             $table->unique(['order_id', 'product_id']);
         });

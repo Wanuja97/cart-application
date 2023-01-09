@@ -48,6 +48,7 @@
             <td><a href="{{ url('/home') }}" class="btn btn-warning"> Continue Shopping</a></td>
             <td colspan="2" class="hidden-xs"></td>
             <td class="hidden-xs text-center"><strong>Total ${{ $total }}</strong></td>
+            <td class="hidden-xs text-center"><a href="{{ route('cart.checkout') }}" class="btn btn-warning">Proceed to checkout</a></td>
         </tr>
         </tfoot>
     </table>

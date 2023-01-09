@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id')->unique();
-            $table->float('total_cost');
-            $table->integer('no_of_items');
+            // $table->float('total_cost');
+            // $table->integer('no_of_items');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

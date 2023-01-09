@@ -18,14 +18,10 @@ class CreateOrdersSeeder extends Seeder
         $order = [
             [
                 'id'=>'1',
-                'total_cost'=>'3550.50',
-                'no_of_items'=>'5',
                 'user_id'=>'2'
              ],
              [
                  'id'=>'2',
-                 'total_cost'=>'4200.00',
-                 'no_of_items'=>'7',
                  'user_id'=>'2'
              ],
         ];
