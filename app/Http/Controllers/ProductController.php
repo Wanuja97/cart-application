@@ -131,4 +131,6 @@ class ProductController extends Controller
         return redirect()->route('view.products');
     }
 
+
+    
 }

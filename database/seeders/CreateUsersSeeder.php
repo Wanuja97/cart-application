@@ -21,6 +21,11 @@ class CreateUsersSeeder extends Seeder
                'last_name'=>'Admin',
                'email'=>'admin@test.com',
                 'is_admin'=>'1',
+                'zip_code'=> '11010',
+                'street'=> 'ABC Road',
+                'city'=> 'City A',
+                'country' => 'Sri Lanka',
+                'telephone'=> '0771231234',
                'password'=> bcrypt('secret'),
             ],
             [
@@ -29,6 +34,11 @@ class CreateUsersSeeder extends Seeder
                'last_name'=>'User',
                'email'=>'user@test.com',
                 'is_admin'=>'0',
+                'zip_code'=> '11010',
+                'street'=> 'ABC Road',
+                'city'=> 'City A',
+                'country' => 'Sri Lanka',
+                'telephone'=> '0771231234',
                'password'=> bcrypt('secret'),
             ],
         ];

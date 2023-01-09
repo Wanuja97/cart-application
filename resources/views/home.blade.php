@@ -27,18 +27,17 @@
                                 <span>{{$item->description}}</span>
                                 <span>{{$item->price}}</span>
                                 <span>{{$item->available_qty}}</span>
-                                <div>
+                                <a href="{{ url('add-to-cart/'.$item->id) }}">Add to cart</a>
+                                <!-- <div>
                                     <button class="add-to-cart" data-id="{{$item->id}}" data-name="{{$item->product_name}}" data-price="{{$item->price}}" data-image="{{$item->image}}">Add to cart</button><br>
                                     <span>Quantity: </span><input type="number" value="1" min="1" max="{{$item->available_qty}}" class="product-quantity">
-                                </div>
+                                </div> -->
                             </div>
                         </li>
                         @endif
                     </ul>
                     <br>
-                    @endforeach
-
-                    
+                    @endforeach                 
                 </div>
             </div>
         </div>
@@ -46,7 +45,3 @@
 </div>
 @endsection
 
-
-@section('script')
-    <script src="{{asset('js/cart-handle.js')}}"></script>
-@endsection
