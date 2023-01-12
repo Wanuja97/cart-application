@@ -6,7 +6,6 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\carbon;
-
 class ProductController extends Controller
 {
     //Calling the Auth Middleware 
@@ -40,9 +39,7 @@ class ProductController extends Controller
         // upload location
         $up_location = 'images/product/';
         $last_img = $up_location.$img_name;
-        $image->move($up_location,$img_name);
-
-       
+        $image->move($up_location,$img_name);       
 
         
         Product::insert([

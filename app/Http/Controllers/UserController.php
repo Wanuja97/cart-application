@@ -28,4 +28,16 @@ class UserController extends Controller
         return redirect()->route('home');
 
     }
+
+    // retrive all consumers
+    public function viewConsumers(){
+        $consumers = User::all()->where('is_admin','=','0');
+        return view('admin.consumers.viewAllConsumers',compact('consumers'));
+    }
+
+    // Retrieve one consumer
+    public function viewOneConsumer($id){
+        $consumer = User::find($id);
+        return view('admin.consumers.viewConsumer',compact('consumer'));
+    }
 }
