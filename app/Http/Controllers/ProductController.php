@@ -9,9 +9,9 @@ use Illuminate\Support\carbon;
 class ProductController extends Controller
 {
     //Calling the Auth Middleware 
-    // public function __construct(){
-    //     return $this-> middleware('auth');
-    // }
+    public function __construct(){
+        return $this-> middleware('auth');
+    }
 
     // Retrive all products
     public function allProducts()
