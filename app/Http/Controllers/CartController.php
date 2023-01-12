@@ -27,7 +27,7 @@ class CartController extends Controller
         if (!$cart) {
             $cart = [
                 $id => [
-                    "productId"=>$id,
+                    "productId" => $id,
                     "name" => $product->product_name,
                     "quantity" => 1,
                     "price" => $product->price,
@@ -45,7 +45,7 @@ class CartController extends Controller
         }
         // if item not exist in cart then add to cart with quantity = 1
         $cart[$id] = [
-            "productId"=>$id,
+            "productId" => $id,
             "name" => $product->product_name,
             "quantity" => 1,
             "price" => $product->price,
@@ -89,14 +89,14 @@ class CartController extends Controller
         $orderId = Order::insertGetId([
             'user_id' => Auth::user()->id,
             'created_at' => Carbon::now(),
-        ]); 
+        ]);
 
         $cart = session()->get('cart');
         // print_r($cart);
 
         foreach ($cart as $cartitem) {
-            // print_r($cartitem);
-;
+                // print_r($cartitem);
+            ;
             OrderItem::insert([
                 'order_id' => $orderId,
                 'product_id' => $cartitem['productId'],
@@ -105,6 +105,17 @@ class CartController extends Controller
                 'created_at' => Carbon::now(),
             ]);
         }
-        return redirect()->back();
+        return redirect()->route('purchase.history');
+    }
+
+    public function purchaseHistoryForLoggedUser()
+    { 
+        $orders = Order::where('user_id',Auth::user()->id)->with('user','orderItems','orderItems.product')->get();
+        return view('consumer.purchaseHistory')->with('orders',$orders);
+    }
+
+    public function viewAllSales(){
+        $sales = Order::all();
+        return view('admin.consumers.viewSales')->with('sales',$sales);
     }
 }

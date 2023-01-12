@@ -39,7 +39,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //  Admin routes
-Route::middleware(['is_admin'])->group(function () {
+Route::middleware(['is_admin','auth'])->group(function () {
 
     // Dashboard routes
     Route::get('/admin/dashboard', [HomeController::class, 'adminDashboard'])->name('admin.adminDashboard');
@@ -51,6 +51,10 @@ Route::middleware(['is_admin'])->group(function () {
     Route::get('admin/product/delete/{id}', [ProductController::class, 'delete'])->name('delete.product');
     Route::get('admin/product/edit/{id}', [ProductController::class, 'edit']);
     Route::post('admin/product/update/{id}', [ProductController::class, 'update']);
+
+    Route::get('admin/consumers/all', [UserController::class, 'viewConsumers'])->name('view.consumers');
+    Route::get('admin/consumer/view/{id}', [UserController::class, 'viewOneConsumer'])->name('view.consumer');
+    Route::get('admin/sales',[CartController::class,'viewAllSales'])->name('view.sales');
 });
 
 
@@ -66,6 +70,7 @@ Route::patch('/update-cart', [CartController::class, 'updateCart'])->name('updat
 Route::delete('/remove-from-cart', [CartController::class, 'deleteCart'])->name('delete.cart');
 Route::get('/cart/checkout',[CartController::class,'checkout'])->name('cart.checkout');
 Route::post('/cart/payment',[CartController::class,'payment'])->name('payment');
+Route::get('/purchase-history',[CartController::class,'purchaseHistoryForLoggedUser'])->name('purchase.history');
 
 // Consumer Profile
 Route::get('/consumer/profile',[UserController::class,'index'])->name('consumer.profile');

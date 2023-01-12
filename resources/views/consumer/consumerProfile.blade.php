@@ -2,6 +2,7 @@
 
 @section('content')
 <div>
+    <a href="{{route('purchase.history')}}">Purchase history</a>
     <form action="{{route('profile.update')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="hidden" id="id" name="id" value="{{$user->id}}">

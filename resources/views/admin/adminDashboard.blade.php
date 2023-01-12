@@ -15,6 +15,12 @@
                     <br><br>
                     <a href="{{route('view.products')}}"> View Products
                     </a>
+                    <br><br>
+                    <a href="{{route('view.consumers')}}"> View Customers
+                    </a>
+                    <br><br>
+                    <a href="{{route('view.sales')}}"> Sales History
+                    </a>
                 
                 </div>
             </div>
