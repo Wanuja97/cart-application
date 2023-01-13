@@ -9,9 +9,9 @@ use Illuminate\Support\carbon;
 class ProductController extends Controller
 {
     //Calling the Auth Middleware 
-    public function __construct(){
-        return $this-> middleware('auth');
-    }
+    // public function __construct(){
+    //     return $this-> middleware('auth');
+    // }
 
     // Retrive all products
     public function allProducts()
@@ -38,6 +38,7 @@ class ProductController extends Controller
         $img_name = $name_gen. "." .$image_exte;
         // upload location
         $up_location = 'images/product/';
+        // $last_img = $request->file('image')->storeAs($up_location,$img_name);
         $last_img = $up_location.$img_name;
         $image->move($up_location,$img_name);       
 

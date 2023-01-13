@@ -43,7 +43,7 @@
                     @foreach($products as $item)
                     @if($item->available_qty > 0)
 
-                    <div class="card p-4 m-4">
+                    <div class="card p-4">
                         <!-- {{$item->image}} -->
                         <img src="{{asset($item->image)}}" alt="" style="width:150px;height:150px;">
                         <span>{{$item->product_name}}</span>
