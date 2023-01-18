@@ -3,6 +3,15 @@
 @section('content')
 <div class="container">
     <div id="cart">
+        
+        @if(count((array) session('cart')) == 0)
+        <div class="text-align-center">
+        <p>Cart is empty</p>
+        <a href="{{ url('/home') }}" class="btn btn-warning"><i class="fa fa-arrow-left" aria-hidden="true"></i> Continue Shopping</a>
+        </div>
+        @endif
+        
+        @if(count((array) session('cart')) > 0)
         <h2>Cart</h2>
         <a href="{{ url('/home') }}" class="btn btn-warning"><i class="fa fa-arrow-left" aria-hidden="true"></i> Continue Shopping</a>
         <table id="cart" class="table table-hover table-condensed table-bordered col-md-12">
@@ -49,10 +58,15 @@
                     
                     <td colspan="3" class="hidden-xs"></td>
                     <td class="hidden-xs text-center"><strong>Total ${{ $total }}</strong></td>
+                    @if(count((array) session('cart')) > 0)
                     <td class="hidden-xs text-center"><a href="{{ route('cart.checkout') }}" class="btn btn-warning">Proceed to checkout <i class="fa fa-arrow-right" aria-hidden="true"></i></a></td>
+                    @endif
+                    
                 </tr>
             </tfoot>
         </table>
+        @endif
+
 
     </div>
 </div>

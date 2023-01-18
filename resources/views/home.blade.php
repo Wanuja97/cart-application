@@ -1,16 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container-fluid">
+    <div class="row justify-content-center mr-8 p-8">
         <div class="col-md-12">
             <div class="d-flex flex-column flex-wrap">
-                <form class="form-inline col-md-12" action="{{route('search.product')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <input class="form-control " type="text" id="keyword" name="keyword" placeholder="Search Product" required>
-                    <input class="btn btn-outline-success " type="submit" value="Search">
-                </form>
-                
+                <div class="row">
+                    <form action="{{route('search.product')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                            <div class="input-group">
+                                <input type="search" id="keyword" name="keyword" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                                <div class="input-group-append">
+                                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div>
+
+                </div>
                 <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -43,9 +54,9 @@
                     @foreach($products as $item)
                     @if($item->available_qty > 0)
 
-                    <div class="card p-4">
+                    <div class="card p-4 m-4">
                         <!-- {{$item->image}} -->
-                        <img src="{{asset($item->image)}}" alt="" style="width:150px;height:150px;">
+                        <img class="img-responsive img-fluid" src="{{asset($item->image)}}" alt="" style="width:150px;height:150px;">
                         <span>{{$item->product_name}}</span>
                         <span>{{$item->description}}</span>
                         <span>{{$item->price}}</span>

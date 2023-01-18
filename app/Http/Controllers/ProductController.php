@@ -79,7 +79,7 @@ class ProductController extends Controller
     public function update(Request $request, $id){
         $item = Product::find($id);
 
-        $old_image = $item->image;
+        $old_image = $item->last_image;
         //If User changed Image
          if($request->image){
             //taking image file

@@ -12,7 +12,10 @@ class UserController extends Controller
 {
     public function index(){
         $user = Auth::user();
-        return view('consumer.consumerProfile',compact('user'));
+
+        $orders = Order::where('user_id',Auth::user()->id)->with('user','orderItems','orderItems.product')->get();
+
+        return view('consumer.consumerProfile',compact('user','orders'));
     }
 
     public function profileUpdate(Request $request){

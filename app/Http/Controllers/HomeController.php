@@ -45,6 +45,6 @@ class HomeController extends Controller
             }
         })->latest()->get();
 
-        return view('consumer.searchresults',compact('products'));
+        return view('consumer.searchresults',compact('products','searchTerm'));
     }
 }

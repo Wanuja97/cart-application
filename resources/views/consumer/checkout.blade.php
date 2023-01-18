@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container d-flex flex-row flex-wrap">
+<div class="container d-flex flex-row flex-wrap col">
 
     <div class="col">
         <h2>Checkout</h2>
@@ -13,7 +13,7 @@
         @else
         <div>
             <p>{{$user->first_name}} {{$user->last_name}}, {{$user->street}}, {{$user->city}}, {{$user->country}}, {{$user->zip_code}}</p>
-            <button><a href="{{route('consumer.profile')}}">Change Shipping Details</a></button>
+            <a href="{{route('consumer.profile')}} " class="btn btn-info">Change Shipping Details</a><br> <br>
             <div>
                 <p>Add Payment method</p>
                 <form action="{{route('payment')}}" method="POST" enctype="multipart/form-data">
@@ -34,10 +34,6 @@
                         <label for="cvv">CVV:</label><br>
                         <input class="form-control" type="text" id="cvv" name="cvv" placeholder="CVV" required><br>
                     </div>
-
-
-
-
                     <div class="row">
                         <div class="input-group-prepend col">
                             <label class="input-group-text" for="month">MM</label>
@@ -66,19 +62,19 @@
 
 
                     </div>
-                    <div class="d-flex">
-                        <input class="btn btn-warning mr-2" type="submit" value="Place Order">
+                    <br>
+                    <div class="col">
+                        <input class="btn btn-warning" type="submit" value="Place Order">
                     </div>
 
                 </form>
             </div>
         </div>
         @endif
-        <!-- <p><b>{{$user->id}}</b></p> -->
-        <!-- Card Numeber   |   cardholders Name    |   MM/YY   CVV -->
     </div>
 
     <div class="col">
+        <h2>Your Cart</h2>
         <table id="cart" class="table table-hover table-condensed">
             <thead>
                 <tr>

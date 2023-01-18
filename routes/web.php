@@ -19,11 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::group(['middleware' => 'prevent-back-history'],function(){
-
 // 	Auth::routes();
-
 // 	Route::get('/home', 'HomeController@index');
-
 // });
 
 Route::get('/', function () {
