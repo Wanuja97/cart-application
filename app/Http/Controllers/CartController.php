@@ -109,6 +109,13 @@ class CartController extends Controller
                 'item_price' => $cartitem['price'],
                 'created_at' => Carbon::now(),
             ]);
+
+            // update product quantity
+            $product = Product::find($cartitem['productId']);
+            $newQty = $product->available_qty - $cartitem['quantity'];
+            Product::find($cartitem['productId'])->update([
+                'available_qty' => $newQty,
+            ]);
         }
         session()->forget('cart');
         return redirect()->route('consumer.profile');
