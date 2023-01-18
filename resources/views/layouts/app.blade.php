@@ -68,9 +68,17 @@
                         @endif
 
                         <li>
+                        
+                            @if(Auth::user()->is_admin == 0)
                             <a class="nav-link" href="/consumer/profile">
                                 {{ Auth::user()->first_name }} {{Auth::user()->last_name}}
                             </a>
+                            @else
+                            <a class="nav-link" href="{{route('view.sales')}}">
+                                <b>Admin:</b> {{ Auth::user()->first_name }} {{Auth::user()->last_name}}
+                            </a>
+                            @endif
+                            
                         </li>
                         <li>
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
