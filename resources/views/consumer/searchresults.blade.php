@@ -16,10 +16,10 @@
                             <span>{{$item->product_name}}</span>
                             <span>{{$item->description}}</span>
                             <span>{{$item->price}}</span>
-                            <span>{{$item->available_qty}}</span>
+                            <!-- <span>{{$item->available_qty}}</span> -->
                             <div>
-                                <button class="add-to-cart" data-id="{{$item->id}}" data-name="{{$item->product_name}}" data-price="{{$item->price}}" data-image="{{$item->image}}">Add to cart</button><br>
-                                <span>Quantity: </span><input type="number" value="1" min="1" max="{{$item->available_qty}}" class="product-quantity">
+                                <button class="btn btn-warning add-to-cart" data-id="{{$item->id}}" data-name="{{$item->product_name}}" data-price="{{$item->price}}" data-image="{{$item->image}}">Add to cart</button><br>
+                                <!-- <span>Quantity: </span><input type="number" value="1" min="1" max="{{$item->available_qty}}" class="product-quantity"> -->
                             </div>
                             @endforeach
                             @endif

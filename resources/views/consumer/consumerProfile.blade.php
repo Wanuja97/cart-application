@@ -6,32 +6,37 @@
 
     <div class="col">
         <h2>Purchase History</h2>
-        <!-- <hr> --> <br>
+        <!-- <hr> <br> -->
         <div>
             <?php
             foreach ($orders as $order) {
             ?>
-                <div class="card p-4 mr-4">
+                <div class=" p-4 mr-4">
+                    <div class="card-header row">
+                        <div class="col col-xs-4">
+                            <span><b>Date:</b></span><br>
+                            <span><b>{{ date('M j, Y', strtotime($order->created_at))}}</b></span>
+                        </div>
+                        <div class="col col-xs-4">
+                            <span><b>Order Id:</b></span><br>
+                            <span><b>{{ $order->id}}</b></span>
+                        </div>
+                        <div class="col">
 
-                
-                <p>{{ date('M j, Y', strtotime($order->created_at))}}</p>
-                <!-- <pre>{{$order}}</pre> -->
-                <?php
-                $total = 0;
-                foreach ($order->orderItems as $orderItem) {
-                    $total += $orderItem->item_price * $orderItem->quantity;
-                ?>
-                    <p>Item Name: {{$orderItem->product->product_name}} <br>
-                        Unit Price: {{$orderItem->item_price}} <br>
-                        Quantity : {{$orderItem->quantity}} <br>
-                        Item Name: {{$orderItem->product->description}}</p>
-                    <!-- <p>{{$orderItem->product}}</p> -->
-                    <!-- {{$total}} -->
-
-                <?php
-                }
-                ?>
-                Total: {{$total}}
+                        </div>
+                    </div>
+                    <?php
+                    $total = 0;
+                    foreach ($order->orderItems as $orderItem) {
+                        $total += $orderItem->item_price * $orderItem->quantity;
+                    ?>
+                        <p><span class="text=primary">{{$orderItem->product->product_name}}</span> <br>
+                            <b>${{$orderItem->item_price}} X {{$orderItem->quantity}}</b><br>
+                            {{$orderItem->product->description}}</p>
+                    <?php
+                    }
+                    ?>
+                    <b>Total: $ {{$total}}</b>
                 </div><br>
                 <!-- <hr> -->
 
@@ -43,7 +48,8 @@
     </div>
 
     <div class="">
-        <h2>Shipping Details</h2><hr>
+        <h2>Shipping Details</h2>
+        <hr>
         <div class="container d-flex flex-row justify-content-center align-items-left">
             <div class="col">
                 <!-- <p class="d-flex justify-content-center">Shipping Details</p> -->

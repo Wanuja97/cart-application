@@ -109,7 +109,7 @@ class CartController extends Controller
                 'created_at' => Carbon::now(),
             ]);
         }
-        return redirect()->route('purchase.history');
+        return redirect()->route('consumer.profile');
     }
 
     public function purchaseHistoryForLoggedUser()
