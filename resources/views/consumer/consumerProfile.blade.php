@@ -14,30 +14,24 @@
                 <div class=" p-4 mr-4">
                     <div class="card-header row">
                         <div class="col col-xs-4">
-                            <span><b>Date:</b></span><br>
+                            <span><b>Date: </b></span>
                             <span><b>{{ date('M j, Y', strtotime($order->created_at))}}</b></span>
                         </div>
-                        <div class="col col-xs-4">
-                            <span><b>Order Id:</b></span><br>
-                            <span><b>{{ $order->id}}</b></span>
-                        </div>
-                        <div class="col">
 
-                        </div>
                     </div>
                     <?php
                     $total = 0;
                     foreach ($order->orderItems as $orderItem) {
                         $total += $orderItem->item_price * $orderItem->quantity;
                     ?>
-                        <p><span class="text=primary">{{$orderItem->product->product_name}}</span> <br>
+                        <p><span class="text=primary">{{$orderItem->product->product_name}} ({{$orderItem->product->description}})</span> <br>
                             <b>${{$orderItem->item_price}} X {{$orderItem->quantity}}</b><br>
-                            {{$orderItem->product->description}}</p>
+                            </p>
                     <?php
                     }
                     ?>
                     <b>Total: $ {{$total}}</b>
-                </div><br>
+                </div>
                 <!-- <hr> -->
 
             <?php

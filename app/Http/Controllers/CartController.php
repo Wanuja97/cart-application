@@ -130,6 +130,7 @@ class CartController extends Controller
     public function viewAllSales()
     {
         $sales = Order::all();
+        // echo ($sales);
         return view('admin.consumers.viewSales')->with('sales', $sales);
     }
 }
