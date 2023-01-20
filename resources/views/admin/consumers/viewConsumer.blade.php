@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 <div class="container d-flex flex-row flex-wrap col">    
-    <div class="row justify-content-center purchases">
+    <div class="row justify-content-center">
         <div >
             <h5>Order History</h5>
             <table id="table_id" class="table table-striped table-hover table-bordered">
