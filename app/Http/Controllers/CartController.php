@@ -11,6 +11,11 @@ use Illuminate\Support\carbon;
 
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('consumer/cart');
@@ -104,18 +109,28 @@ class CartController extends Controller
                 'item_price' => $cartitem['price'],
                 'created_at' => Carbon::now(),
             ]);
+
+            // update product quantity
+            $product = Product::find($cartitem['productId']);
+            $newQty = $product->available_qty - $cartitem['quantity'];
+            Product::find($cartitem['productId'])->update([
+                'available_qty' => $newQty,
+            ]);
         }
-        return redirect()->route('purchase.history');
+        session()->forget('cart');
+        return redirect()->route('consumer.profile');
     }
 
     public function purchaseHistoryForLoggedUser()
-    { 
-        $orders = Order::where('user_id',Auth::user()->id)->with('user','orderItems','orderItems.product')->get();
-        return view('consumer.purchaseHistory')->with('orders',$orders);
+    {
+        $orders = Order::where('user_id', Auth::user()->id)->with('user', 'orderItems', 'orderItems.product')->get();
+        return view('consumer.purchaseHistory')->with('orders', $orders);
     }
 
-    public function viewAllSales(){
+    public function viewAllSales()
+    {
         $sales = Order::all();
-        return view('admin.consumers.viewSales')->with('sales',$sales);
+        // echo ($sales);
+        return view('admin.consumers.viewSales')->with('sales', $sales);
     }
 }

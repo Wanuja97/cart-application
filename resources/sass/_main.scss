@@ -1,0 +1,109 @@
+.form-control:focus {
+	box-shadow: none;
+}
+
+.form-control-underlined {
+	border-width: 0;
+	border-bottom-width: 1px;
+	border-radius: 0;
+	padding-left: 0;
+}
+
+.form-control::placeholder {
+	font-size: 0.95rem;
+	color: $form_control_color;
+	font-style: italic;
+}
+
+
+
+
+
+body {
+	font-family: $text_font_family;
+	font-size: $base_font_size;
+	line-height: $base_line_height;
+	font-weight: 400;
+	//   background: #5a5a5a;
+}
+
+p,
+span,
+a,
+ul,
+li,
+button {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+}
+
+strong {
+	font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $display_font_family;
+	line-height: $base_line_height;
+	font-weight: 300;
+}
+
+strong {
+	font-weight: 400;
+}
+
+.tile {
+	width: 100%;
+	display: inline-block;
+	box-sizing: border-box;
+	background: #fff;
+	padding: 20px;
+	margin-bottom: 30px;
+
+	&:hover {
+		filter: brightness(0.85);
+	}
+
+	.title {
+		margin-top: 0px;
+		font-size: 1.9em !important;
+	}
+
+	&.purple,
+	&.blue,
+	&.red,
+	&.orange,
+	&.green {
+		color: #fff;
+	}
+
+	&.purple {
+		background: $color_purple;
+	}
+
+	&.red {
+		background: $color_red;
+	}
+
+	&.green {
+		background: $color_green;
+	}
+
+	&.blue {
+		background: $color_blue;
+	}
+
+	&.orange {
+		background: $color_orange;
+	}
+}
+.product-images{
+	width:150px;
+	height: auto;
+}

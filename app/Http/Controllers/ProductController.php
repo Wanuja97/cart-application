@@ -38,6 +38,7 @@ class ProductController extends Controller
         $img_name = $name_gen. "." .$image_exte;
         // upload location
         $up_location = 'images/product/';
+        // $last_img = $request->file('image')->storeAs($up_location,$img_name);
         $last_img = $up_location.$img_name;
         $image->move($up_location,$img_name);       
 
