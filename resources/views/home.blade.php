@@ -30,11 +30,10 @@
 
                     <div class="card p-4 m-4">
                         <!-- {{$item->image}} -->
-                        <img class="img-responsive img-fluid" src="{{asset($item->image)}}" alt="" style="width:150px;height:150px;">
-                        <span>{{$item->product_name}}</span>
-                        <span>{{$item->description}}</span>
-                        <span>{{$item->price}}</span>
-                        <span>{{$item->available_qty}}</span>
+                        <img class="img-responsive img-fluid product-images" src="{{asset($item->image)}}" alt="" >
+                        <span><b>{{$item->product_name}}</b> ({{$item->description}})</span>
+                        <span>${{$item->price}}</span>
+                        <span>Available Qty: {{$item->available_qty}}</span>
                         <a href="{{ url('add-to-cart/'.$item->id) }}" class="btn btn-warning"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to Cart</a>
                         <!-- <div>
                                     <button class="add-to-cart" data-id="{{$item->id}}" data-name="{{$item->product_name}}" data-price="{{$item->price}}" data-image="{{$item->image}}">Add to cart</button><br>
