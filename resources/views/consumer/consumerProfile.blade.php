@@ -1,46 +1,51 @@
 @extends('layouts.app')
-
+@section('styles')
+<!-- datatables -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+@endsection
 @section('content')
 
 <div class="container d-flex flex-row flex-wrap col">
-
     <div class="col">
-        <h2>Purchase History</h2>
-        <!-- <hr> <br> -->
-        <div>
-            <?php
-            foreach ($orders as $order) {
-            ?>
-                <div class=" p-4 mr-4">
-                    <div class="card-header row">
-                        <div class="col col-xs-4">
-                            <span><b>Date: </b></span>
-                            <span><b>{{ date('M j, Y', strtotime($order->created_at))}}</b></span>
-                        </div>
-
-                    </div>
-                    <?php
-                    $total = 0;
-                    foreach ($order->orderItems as $orderItem) {
-                        $total += $orderItem->item_price * $orderItem->quantity;
-                    ?>
-                        <p><span class="text=primary">{{$orderItem->product->product_name}} ({{$orderItem->product->description}})</span> <br>
-                            <b>${{$orderItem->item_price}} X {{$orderItem->quantity}}</b><br>
-                            </p>
-                    <?php
-                    }
-                    ?>
-                    <b>Total: $ {{$total}}</b>
-                </div>
-                <!-- <hr> -->
-
-            <?php
-            }
-            ?>
+        <div class="col-md-10">
+            <h2>Sales History</h2>
+            <table class="table table-striped table-hover table-bordered" id="orders_table">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Items</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($orders as $order)
+                    <tr>
+                        <td>
+                            {{ date('M j, Y', strtotime($order->created_at))}}
+                        </td>
+                        <td>
+                            <?php
+                            $total = 0;
+                            foreach ($order->orderItems as $orderItem) {
+                                $total += ($orderItem->item_price) * ($orderItem->quantity);
+                            ?>
+                                <p>{{$orderItem->product->product_name}} ({{$orderItem->product->description}}) <br>
+                                    <b>$ {{$orderItem->item_price}} X {{$orderItem->quantity}} </b>
+                                    <br>
+                                </p>
+                            <?php
+                            }
+                            ?>
+                        </td>
+                        <td>
+                            <b>$ {{$total}}</b>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-
     </div>
-
     <div class="">
         <h2>Shipping Details</h2>
         <hr>
@@ -48,7 +53,6 @@
             <div class="col">
                 <!-- <p class="d-flex justify-content-center">Shipping Details</p> -->
                 <form action="{{route('profile.update')}}" method="POST" enctype="multipart/form-data">
-
                     @csrf
                     <input type="hidden" id="id" name="id" value="{{$user->id}}">
                     <div class="row flex-wrap">
@@ -104,4 +108,12 @@
     </div>
 </div>
 
+@endsection
+@section('script')
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#orders_table').DataTable();
+    });
+</script>
 @endsection
